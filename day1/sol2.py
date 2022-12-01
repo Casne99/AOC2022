@@ -1,14 +1,14 @@
 input = open("input.txt").readlines()
 acc = 0
-top3 = []
+candidates = []
 
 for (idx, line) in enumerate(input):
     if line == '\n':
-        top3.append(acc)
+        candidates.append(acc)
         acc = 0
     elif idx == len(input) - 1:
-        top3.append(int(line))
+        candidates.append(int(line))
     else:
         acc += int(line)
 
-print(sum(sorted(top3)[-3:]))
+print(sum(sorted(candidates)[-3:]))

@@ -1,5 +1,4 @@
 input = open("day1/input.txt").readlines()
-
 maximum = acc = 0
 
 for (idx, line) in enumerate(input):

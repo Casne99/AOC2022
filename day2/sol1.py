@@ -1,4 +1,4 @@
-mosse = {
+moves = {
     "A": "ROCK",
     "B": "PAPER",
     "C": "SCISSORS",
@@ -7,43 +7,43 @@ mosse = {
     "Z": "SCISSORS"
 }
 
-punti = {
+points = {
     "PAPER": 2,
     "ROCK": 1,
     "SCISSORS": 3,
-    "VINTO": 6,
-    "PERSO": 0,
-    "PAREGGIO": 3
+    "WIN": 6,
+    "LOSE": 0,
+    "DRAW": 3
 }
 
 
-def round(mossa_A, mossa_B):
-    if mossa_A == "ROCK":
-        if mossa_B == "PAPER":
-            return "PERSO"
-        if mossa_B == "SCISSORS":
-            return "VINTO"
-        return "PAREGGIO"
-    elif mossa_A == "PAPER":
-        if mossa_B == "PAPER":
-            return "PAREGGIO"
-        if mossa_B == "SCISSORS":
-            return "PERSO"
-        return "VINTO"
+def round(moveA, moveB):
+    if moveA == "ROCK":
+        if moveB == "PAPER":
+            return "LOSE"
+        if moveB == "SCISSORS":
+            return "WIN"
+        return "DRAW"
+    elif moveA == "PAPER":
+        if moveB == "PAPER":
+            return "DRAW"
+        if moveB == "SCISSORS":
+            return "LOSE"
+        return "WIN"
     else:
-        if mossa_B == "PAPER":
-            return "VINTO"
-        if mossa_B == "SCISSORS":
-            return "PAREGGIO"
-        return "PERSO"
+        if moveB == "PAPER":
+            return "WIN"
+        if moveB == "SCISSORS":
+            return "DRAW"
+        return "LOSE"
 
 
 input = open("day2/input.txt").readlines()
-mieiPunti = 0
+myPoints = 0
 
 for line in input:
     temp = line.split(" ")
-    oth_move, my_move = mosse[temp[0]], mosse[temp[1].strip()]
-    mieiPunti += punti[round(my_move, oth_move)] + punti[my_move]
+    oth_move, my_move = moves[temp[0]], moves[temp[1].strip()]
+    myPoints += points[round(my_move, oth_move)] + points[my_move]
 
-print(mieiPunti)
+print(myPoints)

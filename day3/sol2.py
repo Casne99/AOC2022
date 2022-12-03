@@ -20,7 +20,6 @@ group = []
 for (i, line) in enumerate(input):
     group.append(line.strip())
     if (i + 1) % 3 == 0:
-        print(group)
         for elem in group:
             for char in elem:
                 if inCommon(char, group[1:]):

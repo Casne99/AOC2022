@@ -24,7 +24,7 @@ def isContainedIn(section, alreadyChecked):
     return True
 
 
-assigned = SortedSet()
+alreadyChecked = SortedSet()
 ans = 0
 
 
@@ -35,9 +35,9 @@ for line in input:
     bigger, smaller = (sect1, sect2) if (
         size(sect1) > size(sect2)) else (sect2, sect1)
     lower, upper = bounds(bigger)
-    updateChecked(lower, upper, assigned)
-    if isContainedIn(smaller, assigned):
+    updateChecked(lower, upper, alreadyChecked)
+    if isContainedIn(smaller, alreadyChecked):
         ans += 1
-    assigned.clear()
+    alreadyChecked.clear()
 
 print(ans)

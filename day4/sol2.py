@@ -24,7 +24,7 @@ def overlaps(sections, alreadyChecked):
     return False
 
 
-assigned = SortedSet()
+alreadyChecked = SortedSet()
 ans = 0
 
 
@@ -35,9 +35,9 @@ for line in input:
     bigger, smaller = (sect1, sect2) if (
         size(sect1) > size(sect2)) else (sect2, sect1)
     lower, upper = bounds(bigger)
-    updateChecked(lower, upper, assigned)
-    if overlaps(smaller, assigned):
+    updateChecked(lower, upper, alreadyChecked)
+    if overlaps(smaller, alreadyChecked):
         ans += 1
-    assigned.clear()
+    alreadyChecked.clear()
 
 print(ans)

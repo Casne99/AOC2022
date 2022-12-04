@@ -1,11 +1,14 @@
+from sortedcontainers import SortedSet
+
+
 def size(section):
     lower, upper = bounds(section)
     return upper - lower + 1
 
 
-def updateMap(lower, upper, map):
+def updateChecked(lower, upper, checkedSet):
     for i in range(lower, upper + 1):
-        map[i] = True
+        checkedSet.add(i)
 
 
 def bounds(section):
@@ -13,15 +16,15 @@ def bounds(section):
     return int(splitted[0]), int(splitted[1])
 
 
-def overlaps(section, map):
-    lower, upper = bounds(section)
+def overlaps(sections, alreadyChecked):
+    lower, upper = bounds(sections)
     for i in range(lower, upper + 1):
-        if i in map:
+        if i in alreadyChecked:
             return True
     return False
 
 
-assigned = {}
+assigned = SortedSet()
 ans = 0
 
 
@@ -32,7 +35,7 @@ for line in input:
     bigger, smaller = (sect1, sect2) if (
         size(sect1) > size(sect2)) else (sect2, sect1)
     lower, upper = bounds(bigger)
-    updateMap(lower, upper, assigned)
+    updateChecked(lower, upper, assigned)
     if overlaps(smaller, assigned):
         ans += 1
     assigned.clear()

@@ -23,8 +23,8 @@ for line in input:
         size(sect1) > size(sect2)) else (sect2, sect1)
     lower_big, upper_big = bounds(bigger)
     alreadyChecked = sectionsList(lower_big, upper_big)
-    lower_sm, upper_sm = bounds(smaller)
-    if all(elem in alreadyChecked for elem in sectionsList(lower_sm, upper_sm)):
+    lower_small, upper_small = bounds(smaller)
+    if all(elem in alreadyChecked for elem in sectionsList(lower_small, upper_small)):
         ans += 1
 
 print(ans)

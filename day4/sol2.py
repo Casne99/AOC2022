@@ -9,7 +9,7 @@ def bounds(section):
 
 
 def sectionsList(lower, upper):
-    return [*range(lower, upper + 1, 1)]
+    return [*range(lower, upper + 1)]
 
 
 ans = 0

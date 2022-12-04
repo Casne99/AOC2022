@@ -53,7 +53,7 @@ def gioca(move, code):
         return against[move][1]
 
 
-input = open("day2/input.txt").readlines()
+input = open("src/day2/input.txt").readlines()
 myPoints = 0
 
 for line in input:

@@ -15,7 +15,7 @@ def sectionsList(lower, upper):
 ans = 0
 
 
-input = open("day4/input.txt").readlines()
+input = open("src/day4/input.txt").readlines()
 for line in input:
     pair = line.split(",")
     sect1, sect2 = pair[0], pair[1]

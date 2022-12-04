@@ -8,7 +8,7 @@ for (c1, c2) in zip(ascii_lowercase, ascii_uppercase):
     values[c1], values[c2] = ord(c1) - 96, ord(c2) - 38
 
 
-input = open("day3/input.txt").readlines()
+input = open("src/day3/input.txt").readlines()
 
 for line in input:
     bag1, bag2 = (line[:len(line)//2], line[len(line)//2:].strip())

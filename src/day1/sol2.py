@@ -1,4 +1,4 @@
-input = open("day1/input.txt").readlines()
+input = open("src/day1/input.txt").readlines()
 acc = 0
 candidates = []
 

@@ -14,7 +14,7 @@ def inCommon(x, groups):
     return True
 
 
-input = open("day3/input.txt").readlines()
+input = open("src/day3/input.txt").readlines()
 group = []
 
 for (i, line) in enumerate(input):

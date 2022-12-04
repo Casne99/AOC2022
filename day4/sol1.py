@@ -1,14 +1,6 @@
-from sortedcontainers import SortedSet
-
-
 def size(section):
     lower, upper = bounds(section)
     return upper - lower + 1
-
-
-def updateChecked(lower, upper, checkedSet):
-    for i in range(lower, upper + 1):
-        checkedSet.add(i)
 
 
 def bounds(section):
@@ -16,15 +8,10 @@ def bounds(section):
     return int(splitted[0]), int(splitted[1])
 
 
-def isContainedIn(section, alreadyChecked):
-    lower, upper = bounds(section)
-    for i in range(lower, upper + 1):
-        if not i in alreadyChecked:
-            return False
-    return True
+def sectionsList(lower, upper):
+    return [*range(lower, upper + 1, 1)]
 
 
-alreadyChecked = SortedSet()
 ans = 0
 
 
@@ -34,10 +21,10 @@ for line in input:
     sect1, sect2 = pair[0], pair[1]
     bigger, smaller = (sect1, sect2) if (
         size(sect1) > size(sect2)) else (sect2, sect1)
-    lower, upper = bounds(bigger)
-    updateChecked(lower, upper, alreadyChecked)
-    if isContainedIn(smaller, alreadyChecked):
+    lower_big, upper_big = bounds(bigger)
+    alreadyChecked = sectionsList(lower_big, upper_big)
+    lower_sm, upper_sm = bounds(smaller)
+    if all(elem in alreadyChecked for elem in sectionsList(lower_sm, upper_sm)):
         ans += 1
-    alreadyChecked.clear()
 
 print(ans)

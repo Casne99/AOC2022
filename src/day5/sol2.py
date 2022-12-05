@@ -15,7 +15,6 @@ input = open('src/day5/input.txt').read().split('\n\n')
 rows = input[0].splitlines()
 instructions = input[1].splitlines()
 crates = []
-stacks = []
 
 
 for line in rows:
@@ -30,8 +29,7 @@ for line in rows:
 
 del(crates[-1])
 crates.reverse()
-for _ in range(len(crates[0])):
-    stacks.append([])
+stacks = [[] for _ in range(len(crates[0]))]
 
 for sameHeightElems in crates:
     for i, elem in enumerate(sameHeightElems):

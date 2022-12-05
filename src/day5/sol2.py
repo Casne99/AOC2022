@@ -5,10 +5,10 @@ def parseInstruction(instruction):
 
 
 def getAnswer(stackList):
-    ans = ""
+    answer = ""
     for stack in stackList:
-        ans += stack[-1]
-    return ans
+        answer += stack[-1]
+    return answer
 
 
 input = open('src/day5/input.txt').read().split('\n\n')

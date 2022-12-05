@@ -8,10 +8,7 @@ for (c1, c2) in zip(ascii_lowercase, ascii_uppercase):
 
 
 def inCommon(x, groups):
-    for group in groups:
-        if not x in group:
-            return False
-    return True
+    return all(x in group for group in groups)
 
 
 input = open("src/day3/input.txt").readlines()

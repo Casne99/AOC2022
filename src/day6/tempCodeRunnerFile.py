@@ -6,12 +6,12 @@ def areAllDifferent(deq, size):
 
 
 ans = 0
-deq = deque(maxlen=14)
+deq = deque(maxlen=4)
 input = open("src/day6/input.txt").read()
 
 for i, char in enumerate(input):
     deq.appendleft(char)
-    if areAllDifferent(deq, 14):
+    if areAllDifferent(deq, len(deq)):
         ans = i + 1
         break
 

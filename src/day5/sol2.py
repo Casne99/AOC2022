@@ -38,9 +38,8 @@ for sameHeightElems in crates:
 
 for instruction in instructions:
     num, fr, to = parseInstruction(instruction)
-    toMove = []
-    for _ in range(num):
-        toMove.insert(0, stacks[fr].pop())
-    stacks[to] = stacks[to] + toMove
+    toMove = stacks[fr][-num:]
+    stacks[fr] = stacks[fr][:-num or None]
+    stacks[to].extend(toMove)
 
 print(getAnswer(stacks))

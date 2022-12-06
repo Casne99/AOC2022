@@ -6,7 +6,6 @@ def areAllDifferent(deq, size):
 
 
 ans = 0
-bound = 4
 deq = deque(maxlen=4)
 input = open("src/day6/input.txt").read()
 

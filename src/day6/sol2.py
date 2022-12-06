@@ -2,7 +2,7 @@ from collections import deque
 
 
 def areAllDifferent(deq, size):
-    return len(deq) == size and all(deq.count(elem) == 1 for elem in deq)
+    return len(set(deq)) == size
 
 
 ans = 0

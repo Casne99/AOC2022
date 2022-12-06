@@ -2,8 +2,7 @@ from collections import deque
 
 
 def areAll4Different(deq):
-    if len(deq) == 4:
-        return all(deq.count(elem) == 1 for elem in deq)
+    return len(deq) == 4 and all(deq.count(elem) == 1 for elem in deq)
 
 
 ans = 0

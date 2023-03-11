@@ -1,3 +1,6 @@
+import math
+
+
 class TreeField:
 
     def __init__(self, xlim, ylim, grid):
@@ -27,6 +30,18 @@ class TreeField:
 
     def count_visible(self):
         return sum(1 for (x, y) in self.grid.keys() if self.is_visible(x, y))
+
+    def visible_trees(self, x, y, to):
+        ty = res = 0
+        if to == "TOP":
+            while ty < self.ylim + 1:
+
+        return 0
+
+    def scenic_score(self, x, y):
+        scores = []
+
+        return math.prod(scores)
 
     def __str__(self):
         return str(self.grid)

@@ -18,9 +18,7 @@ ans = 0
 input = open("src/day4/input.txt").readlines()
 for line in input:
     pair = line.split(",")
-    sect1, sect2 = pair[0], pair[1]
-    bigger, smaller = (sect1, sect2) if size(
-        sect1) > size(sect2) else (sect2, sect1)
+    smaller, bigger = sorted((pair[0], pair[1]), key=size)
     lower_big, upper_big = bounds(bigger)
     alreadyChecked = sectionsList(lower_big, upper_big)
     lower_small, upper_small = bounds(smaller)

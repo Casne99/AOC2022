@@ -1,0 +1,1 @@
+    smaller, bigger = sorted((pair[0], pair[1]), key=size)

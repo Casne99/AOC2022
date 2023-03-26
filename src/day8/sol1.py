@@ -1,5 +1,7 @@
 class TreeField:
 
+    # CONTROLLARE CONSISTENZA X E Y
+
     def __init__(self, xlim, ylim, grid):
         self.xlim = xlim
         self.ylim = ylim
@@ -28,14 +30,11 @@ class TreeField:
     def count_visible(self):
         return sum(1 for (x, y) in self.grid.keys() if self.is_visible(x, y))
 
-    def __str__(self):
-        return str(self.grid)
-
 
 def initialize_grid(grid):
     res = {}
-    for x, line in enumerate(reversed(grid)):
-        for y, height in enumerate(line.strip()):
+    for y, line in enumerate(reversed(grid)):
+        for x, height in enumerate(line.strip()):
             res[(x, y)] = int(height)
     return res
 

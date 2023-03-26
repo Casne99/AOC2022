@@ -31,12 +31,30 @@ class TreeField:
     def count_visible(self):
         return sum(1 for (x, y) in self.grid.keys() if self.is_visible(x, y))
 
-    def visible_trees(self, x, y, to):
-        ty = res = 0
-        if to == "TOP":
-            while ty < self.ylim + 1:
+    # def visible_trees(self, x, y, to):
+    #     visible_trees_map = {
+    #         "TOP": 0,
+    #         "LEFT": 0,
+    #         "RIGHT": 0,
+    #         "BOTTOM": 0
+    #     }
+    #     ty = y
+    #     tval = self.height(x, y)
+    #     if to == "TOP":
+    #         tvis = 0
+    #         while ty < self.ylim + 1:
 
-        return 0
+    #     return 0
+
+    def list_from_to(self, x, y, to):
+        if to == "TOP":
+            return list(self.height(p, x) for p in range(y, self.ylim + 1))
+        if to == "RIGHT":
+            return list(self.height(y, p) for p in range(x, self.xlim + 1))
+        if to == "LEFT":
+            return list(self.height(p, y) for p in range(x, -1, -1))
+        if to == "BOTTOM":
+            return list(self.height(x, p) for p in range(y, -1, -1))
 
     def scenic_score(self, x, y):
         scores = []
@@ -60,5 +78,5 @@ puzzle = initialize_grid(input)
 x_max = max(x for (x, _) in puzzle.keys())
 y_max = max(y for (_, y) in puzzle.keys())
 field = TreeField(x_max, y_max, puzzle)
-ans = field.count_visible()
-print(ans)
+print(field.height(4, 0))
+#print(field.list_from_to(4, 0, "LEFT"))
